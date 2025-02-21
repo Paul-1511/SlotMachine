@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+}
+
+.slot-machine {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: relative;
+    aspect-ratio: 3 / 1;
+}
+
+.reel {
+    width: 60px;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid white;
+    background: black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+}
+
+.reel::before, .reel::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: #222;
+    z-index: 1;
+}
+
+.reel::after {
+    bottom: 0;
+}
+
+.symbols {
+    display: flex;
+    flex-direction: column;
+    animation: spin 2s linear infinite;
+}
+
+/* Corrected infinite loop */
+@keyframes spin {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}
+
+/* Enhanced reference link styling */
+.reference {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reference li {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reference li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Color enhancements */
+.symbols > div:nth-child(2) {
+    color: yellow;
+}
+
+.symbols > div:first-child {
+    color: red;
+}
+
+.symbols > div:last-child {
+    color: blue;
+}
+
+/* Advanced CSS properties */
+.reel {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    filter: brightness(1.2);
+    mask: linear-gradient(to bottom, transparent 0%, white 50%, transparent 100%);
+}
+
+/* Adding sibling selectors */
+.slot-machine > .reel + .reel {
+    border-color: yellow;
+}
+
+.slot-machine > .reel ~ .reel {
+    border-color: green;
+}
