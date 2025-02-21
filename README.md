@@ -1,6 +1,6 @@
 # SlotMachine
 
-#Autor
+# Autor
 Pablo Méndez
 
 ## Clone this repository!
